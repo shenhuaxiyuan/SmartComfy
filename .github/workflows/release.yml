@@ -42,6 +42,8 @@ jobs:
           cd source
           npm install --omit=dev
           npm install --save-dev archiver javascript-obfuscator
+          # 验证 javascript-obfuscator CLI 可用
+          npx javascript-obfuscator --version
 
       - name: Build release package
         env:
