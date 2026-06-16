@@ -1,0 +1,96 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+data/
+workflow-pic/
+output_batch/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Editor directories
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# Vue source code (private)
+Vue/src/
+Vue/tests/
+Vue/server.js
+Vue/backup.js
+Vue/vite.config.ts
+Vue/tsconfig*.json
+Vue/package.json
+Vue/package-lock.json
+Vue/pnpm-lock.yaml
+Vue/index.html
+Vue/tailwind.config.js
+Vue/postcss.config.js
+Vue/.eslintrc.cjs
+Vue/.gitignore
+Vue/.prettierrc.json
+Vue/tsconfig.node.json
+
+# Root source code (private)
+server.js
+backup.js
+AGENTS.md
+package.json
+package-lock.json
+pnpm-lock.yaml
+install.bat
+run.bat
+run-single.bat
+full.bat
+readonly.bat
+
+# Private data
+data/

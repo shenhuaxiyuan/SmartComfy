@@ -1,0 +1,50 @@
+name: Build and Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout private source
+        uses: actions/checkout@v4
+        with:
+          repository: shenhuaxiyuan/SmartComfy-Src
+          ref: master
+          token: ${{ secrets.BUILD_TOKEN }}
+          path: source
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - name: Install dependencies
+        run: |
+          cd source/Vue
+          pnpm install
+
+      - name: Build with obfuscation
+        run: |
+          cd source/Vue
+          pnpm build
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: source/Vue/dist/**
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
