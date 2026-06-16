@@ -11,7 +11,7 @@ permissions:
 jobs:
   build-and-release:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout private source
         uses: actions/checkout@v4
@@ -31,20 +31,29 @@ jobs:
         with:
           version: 9
 
-      - name: Install dependencies
+      - name: Build frontend
         run: |
           cd source/Vue
           pnpm install
-
-      - name: Build with obfuscation
-        run: |
-          cd source/Vue
           pnpm build
+
+      - name: Install backend dependencies
+        run: |
+          cd source
+          npm install --omit=dev
+          npm install --save-dev archiver javascript-obfuscator
+
+      - name: Build release package
+        env:
+          RELEASE_VERSION: ${{ github.ref_name }}
+        run: |
+          cd source
+          node scripts/build-exe.js
 
       - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
-          files: source/Vue/dist/**
+          files: source/dist-release/*.zip
           generate_release_notes: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
