@@ -69,10 +69,17 @@ SmartComfy-v1.0.6/
 
 创建应用前，需要先开启 ComfyUI 的开发者模式，以便导出 API 格式的工作流：
 
-1. 打开 ComfyUI 界面（通常是 `http://localhost:8188`）
-2. 点击右上角的 **设置图标**（齿轮按钮）
-3. 在设置菜单中找到 **"Enable Dev mode Options"** 并勾选启用
-4. 启用后，右侧菜单会出现 **"Save (API Format)"** 选项
+1. **添加启动参数**（重要）：ComfyUI 必须使用 `--enable-cors-header` 参数启动，否则 SmartComfy 调用时会报 **403 错误**。
+   
+   示例：
+   ```bash
+   python main.py --listen 0.0.0.0 --enable-cors-header
+   ```
+
+2. 打开 ComfyUI 界面（通常是 `http://localhost:8188`）
+3. 点击右上角的 **设置图标**（齿轮按钮）
+4. 在设置菜单中找到 **"Enable Dev mode Options"** 并勾选启用
+5. 启用后，右侧菜单会出现 **"Save (API Format)"** 选项
 
 ### 创建应用
 
