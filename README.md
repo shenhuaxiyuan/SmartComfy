@@ -65,12 +65,22 @@ SmartComfy-v1.0.6/
 
 ## 📖 使用指南
 
+### 开启 ComfyUI 开发者模式
+
+创建应用前，需要先开启 ComfyUI 的开发者模式，以便导出 API 格式的工作流：
+
+1. 打开 ComfyUI 界面（通常是 `http://localhost:8188`）
+2. 点击右上角的 **设置图标**（齿轮按钮）
+3. 在设置菜单中找到 **"Enable Dev mode Options"** 并勾选启用
+4. 启用后，右侧菜单会出现 **"Save (API Format)"** 选项
+
 ### 创建应用
 
 1. 点击首页的「创建应用」按钮
 2. 选择上传方式：
-   - **图片上传**：上传包含 ComfyUI 工作流的 PNG 图片
-   - **JSON上传**：上传 ComfyUI 工作流 JSON 文件
+   - **图片上传**：上传 ComfyUI **生成的图片**（图片中包含工作流元数据，SmartComfy 会自动提取）
+   - **JSON 上传**：上传 ComfyUI **导出的 API 格式 JSON 文件**（在 ComfyUI 中点击右侧菜单的 "Save (API Format)" 导出）
+   - ⚠️ **注意**：不要上传工作流原文件（.json 工作流文件），必须使用 API 格式的 JSON
 3. 配置应用名称和描述
 4. 选择需要对外暴露的输入参数
 5. 选择输出节点
