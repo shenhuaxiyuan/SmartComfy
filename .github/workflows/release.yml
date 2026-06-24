@@ -41,9 +41,10 @@ jobs:
         run: |
           cd source
           npm install --omit=dev
-          npm install --save-dev archiver javascript-obfuscator
-          # 验证 javascript-obfuscator CLI 可用
+          npm install --save-dev archiver javascript-obfuscator esbuild
+          # 验证工具可用
           npx javascript-obfuscator --version
+          npx esbuild --version
 
       - name: Build release package
         env:
